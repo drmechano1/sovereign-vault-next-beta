@@ -1,4 +1,4 @@
-import { VideoHero } from '@/components/VideoHero';
+import { VideoHero } from '../../components/VideoHero';
 
 export default function Page() {
   return (
@@ -11,7 +11,8 @@ export default function Page() {
       />
       <section className="section-max pb-12 text-sm text-foreground/70">
         <p>
-          Use this to position AI as an analyst and co-pilot, not a custodian.
+          This page is wired into the premium Sovereign Vault layout. Replace this copy with
+          your final product UI, logic, and content for the <strong>Sovereign AI Assistant</strong> experience.
         </p>
       </section>
     </div>

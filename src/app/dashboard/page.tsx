@@ -1,4 +1,4 @@
-import { VideoHero } from '@/components/VideoHero';
+import { VideoHero } from '../../components/VideoHero';
 
 export default function Page() {
   return (
@@ -11,7 +11,8 @@ export default function Page() {
       />
       <section className="section-max pb-12 text-sm text-foreground/70">
         <p>
-          This will become the logged-in home base for power users and institutions.
+          This page is wired into the premium Sovereign Vault layout. Replace this copy with
+          your final product UI, logic, and content for the <strong>Command Dashboard</strong> experience.
         </p>
       </section>
     </div>
