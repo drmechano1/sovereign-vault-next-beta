@@ -6,46 +6,66 @@ import gsap from "gsap";
 
 export default function PremiumHero() {
   const heroRef = useRef<HTMLDivElement | null>(null);
+  const bgRef = useRef<HTMLDivElement | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLDivElement | null>(null);
-  const featureRef = useRef<HTMLDivElement | null>(null);
+  const badgesRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!heroRef.current) return;
 
     const ctx = gsap.context(() => {
+      // Soft fade-in of the whole hero
       gsap.fromTo(
         heroRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 1.2, ease: "power2.out" }
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }
       );
 
+      // Slow parallax / scale on the golden fluid background
+      if (bgRef.current) {
+        gsap.to(bgRef.current, {
+          scale: 1.06,
+          xPercent: -2,
+          duration: 18,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      }
+
+      // Hero card float
+      if (cardRef.current) {
+        gsap.fromTo(
+          cardRef.current,
+          { opacity: 0, y: 32 },
+          { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.2 }
+        );
+
+        gsap.to(cardRef.current, {
+          y: -10,
+          duration: 4,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      }
+
+      // CTA buttons
       if (ctaRef.current) {
         gsap.fromTo(
-          ctaRef.current.children,
-          { y: 18, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.12,
-            duration: 0.8,
-            delay: 0.4,
-            ease: "power3.out",
-          }
+          ctaRef.current,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.9, ease: "power2.out", delay: 0.4 }
         );
       }
 
-      if (featureRef.current) {
+      // Top badges / labels
+      if (badgesRef.current) {
         gsap.fromTo(
-          featureRef.current.children,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.09,
-            duration: 0.85,
-            delay: 0.6,
-            ease: "power3.out",
-          }
+          badgesRef.current,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.9, ease: "power2.out", delay: 0.3 }
         );
       }
     }, heroRef);
@@ -56,65 +76,117 @@ export default function PremiumHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[90vh] w-full overflow-hidden bg-black"
+      className="relative isolate overflow-hidden pt-24 pb-20 sm:pb-24 lg:pb-32"
     >
-      {/* Background hero art */}
-      <div className="absolute inset-0">
+      {/* GOLDEN SWIRL BACKGROUND */}
+      <div ref={bgRef} className="absolute inset-0 -z-20">
         <Image
-          src="/images/hero/sovereign-hero.png"
-          alt="Sovereign Vault hero"
-          priority
+          src="/images/hero/hero-bg-golden-swirls.png"
+          alt="Golden fluid energy representing secure, premium crypto flows"
           fill
+          priority
           className="object-cover"
         />
-        {/* Slight darkening so text stays legible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/80" />
+        {/* Dark vignette + gradient so text and card pop */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.85),_rgba(2,3,10,0.95))]" />
       </div>
 
-      {/* Overlays: only CTAs + feature cards */}
-      <div className="relative z-10 flex min-h-[90vh] flex-col items-center justify-end pb-16 text-center">
-        <div className="section-shell max-w-5xl">
-          {/* CTA buttons */}
+      {/* Aura overlay on top using existing hero-overlay styling */}
+      <div className="hero-overlay pointer-events-none absolute inset-0 -z-10" />
+
+      {/* CONTENT */}
+      <div className="relative z-10 section-shell">
+        <div
+          ref={badgesRef}
+          className="mb-4 flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-amber-200/90"
+        >
+          <span className="rounded-full border border-amber-200/40 bg-black/60 px-4 py-1 shadow-[0_0_24px_rgba(255,214,134,0.4)]">
+            SovereignVault • Elite Security
+          </span>
+          <span className="rounded-full border border-amber-200/20 bg-black/40 px-4 py-1 text-amber-100/80">
+            Rolex-Level • Lambo-Grade • Tech-Forward
+          </span>
+        </div>
+
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-semibold text-amber-50 sm:text-4xl lg:text-[2.9rem] lg:leading-tight">
+            The Elite Crypto Vault for{" "}
+            <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
+              People Who Refuse to Get Rugged
+            </span>
+          </h1>
+          <p className="mt-4 text-sm text-amber-100/80 sm:text-base">
+            Sovereign Vault locks your entire crypto life behind @name identity,
+            premium hardware-grade security, and an AI risk engine watching
+            every move. Day one, you get the same protection the elites do.
+          </p>
+        </div>
+
+        {/* HERO CARD */}
+        <div className="mt-10 flex justify-center">
+          <div
+            ref={cardRef}
+            className="relative w-full max-w-xl rounded-[32px] border border-amber-200/40 bg-black/40 p-[2px] shadow-[0_0_55px_rgba(255,214,134,0.45)] backdrop-blur"
+          >
+            <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,_rgba(255,214,134,0.26),_transparent_65%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.9),_transparent_65%)]" />
+            <div className="relative overflow-hidden rounded-[28px]">
+              <Image
+                src="/images/hero/hero-card-elite-access.png"
+                alt="Sovereign Vault • Elite Security Access"
+                width={1200}
+                height={800}
+                priority
+                className="h-auto w-full object-cover"
+              />
+            </div>
+
+            {/* Elite access strip under card */}
+            <div className="relative flex items-center justify-between gap-3 border-t border-amber-200/25 bg-black/80 px-5 py-3 text-[11px] text-amber-100/80">
+              <span className="tracking-[0.25em] uppercase text-amber-200/90">
+                Elite Access
+              </span>
+              <span className="rounded-full border border-amber-200/50 bg-black/50 px-3 py-1 text-[10px] font-semibold text-amber-100 shadow-[0_0_18px_rgba(255,214,134,0.5)]">
+                Same Protection as the Vaulted Few
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA + QUICK STATS */}
+        <div className="mt-10 flex flex-col items-center">
           <div
             ref={ctaRef}
-            className="mb-10 flex flex-wrap items-center justify-center gap-4"
+            className="mb-6 flex flex-wrap items-center justify-center gap-4"
           >
-            <button className="rounded-full border border-amber-300/60 bg-amber-300/90 px-7 py-2 text-xs font-semibold tracking-wide text-black shadow-[0_0_30px_rgba(255,214,134,0.6)] hover:bg-amber-200 transition">
+            <button className="rounded-full border border-amber-200/80 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-black shadow-[0_0_30px_rgba(255,214,134,0.6)] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,214,134,0.8)] transition">
               ENTER THE VAULT
             </button>
-            <button className="rounded-full border border-amber-200/70 bg-black/60 px-7 py-2 text-xs font-semibold tracking-wide text-amber-100 hover:bg-amber-50/5 transition">
+            <button className="rounded-full border border-amber-100/40 bg-black/70 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-amber-100 hover:bg-amber-50/5 transition">
               SECURE YOUR WEALTH
             </button>
           </div>
 
-          {/* Elite Access bar */}
-          <div className="mx-auto mb-6 inline-flex items-center justify-center rounded-full border border-amber-300/40 bg-black/70 px-6 py-2 text-[11px] font-medium tracking-[0.25em] text-amber-200/90 uppercase hero-ring">
-            ELITE ACCESS: $278+
-          </div>
-
-          {/* Feature cards row */}
-          <div
-            ref={featureRef}
-            className="mx-auto mt-4 grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-3"
-          >
-            {[
-              "Hardware Security",
-              "Biometric Auth",
-              "SafeSend",
-              "Multi-Party Compute",
-              "Social Recovery",
-              "NFT Verification",
-            ].map((label) => (
-              <div
-                key={label}
-                className="glass-card flex flex-col items-center justify-center rounded-xl px-3 py-4 text-[11px] text-amber-50/90 backdrop-blur"
-              >
-                <div className="mb-2 h-7 w-7 rounded-full border border-amber-300/70 bg-black/60 shadow-[0_0_24px_rgba(255,214,134,0.6)]" />
-                <span className="font-semibold tracking-wide text-amber-100">
-                  {label}
-                </span>
-              </div>
-            ))}
+          {/* Price + key pillars */}
+          <div className="flex flex-col items-center gap-4 text-[11px] text-amber-100/80 sm:flex-row sm:gap-6">
+            <div className="hero-ring inline-flex items-center gap-2 rounded-full border border-amber-200/50 bg-black/70 px-4 py-2">
+              <span className="uppercase tracking-[0.25em] text-amber-200/90">
+                Elite Access
+              </span>
+              <span className="text-[12px] font-semibold text-amber-100">
+                $278 • One Time • Lifetime @Name
+              </span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 text-[11px] text-amber-100/80">
+              <span className="rounded-full bg-black/60 px-3 py-1">
+                Hardware-Grade Security
+              </span>
+              <span className="rounded-full bg-black/60 px-3 py-1">
+                AI Risk Engine 24/7
+              </span>
+              <span className="rounded-full bg-black/60 px-3 py-1">
+                SafeSend &amp; Guardians
+              </span>
+            </div>
           </div>
         </div>
       </div>
