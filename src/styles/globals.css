@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+.gradient-border {
+  border-image: linear-gradient(120deg, #F6C453, #7C5CFF) 1;
+}
+
+.section-max {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
