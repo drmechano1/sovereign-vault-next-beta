@@ -15,14 +15,12 @@ export default function PremiumHero() {
     if (!heroRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Soft fade-in of the whole hero
       gsap.fromTo(
         heroRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }
       );
 
-      // Slow parallax / scale on the golden fluid background
       if (bgRef.current) {
         gsap.to(bgRef.current, {
           scale: 1.06,
@@ -34,7 +32,6 @@ export default function PremiumHero() {
         });
       }
 
-      // Hero card float
       if (cardRef.current) {
         gsap.fromTo(
           cardRef.current,
@@ -51,7 +48,6 @@ export default function PremiumHero() {
         });
       }
 
-      // CTA buttons
       if (ctaRef.current) {
         gsap.fromTo(
           ctaRef.current,
@@ -60,7 +56,6 @@ export default function PremiumHero() {
         );
       }
 
-      // Top badges / labels
       if (badgesRef.current) {
         gsap.fromTo(
           badgesRef.current,
@@ -78,7 +73,6 @@ export default function PremiumHero() {
       ref={heroRef}
       className="relative isolate overflow-hidden pt-24 pb-20 sm:pb-24 lg:pb-32"
     >
-      {/* GOLDEN SWIRL BACKGROUND */}
       <div ref={bgRef} className="absolute inset-0 -z-20">
         <Image
           src="/images/hero/hero-bg-golden-swirls.png"
@@ -87,14 +81,11 @@ export default function PremiumHero() {
           priority
           className="object-cover"
         />
-        {/* Dark vignette + gradient so text and card pop */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.85),_rgba(2,3,10,0.95))]" />
       </div>
 
-      {/* Aura overlay on top using existing hero-overlay styling */}
       <div className="hero-overlay pointer-events-none absolute inset-0 -z-10" />
 
-      {/* CONTENT */}
       <div className="relative z-10 section-shell">
         <div
           ref={badgesRef}
@@ -117,30 +108,27 @@ export default function PremiumHero() {
           </h1>
           <p className="mt-4 text-sm text-amber-100/80 sm:text-base">
             Sovereign Vault locks your entire crypto life behind @name identity,
-            premium hardware-grade security, and an AI risk engine watching
-            every move. Day one, you get the same protection the elites do.
+            hardware-grade security, and an AI risk engine watching every move.
+            Day one, you get the same protection the elites do.
           </p>
         </div>
 
-        {/* HERO CARD */}
         <div className="mt-10 flex justify-center">
           <div
             ref={cardRef}
             className="relative w-full max-w-xl rounded-[32px] border border-amber-200/40 bg-black/40 p-[2px] shadow-[0_0_55px_rgba(255,214,134,0.45)] backdrop-blur"
           >
             <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,_rgba(255,214,134,0.26),_transparent_65%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.9),_transparent_65%)]" />
-            <div className="relative overflow-hidden rounded-[28px]">
+            <div className="relative overflow-hidden rounded-[28px] bg-black">
               <Image
-                src="/images/hero/hero-card-elite-access.png"
+                src="/images/sections/sovereign-vault-elite-security-access.png"
                 alt="Sovereign Vault • Elite Security Access"
                 width={1200}
                 height={800}
                 priority
-                className="h-auto w-full object-cover"
+                className="h-auto w-full object-contain"
               />
             </div>
-
-            {/* Elite access strip under card */}
             <div className="relative flex items-center justify-between gap-3 border-t border-amber-200/25 bg-black/80 px-5 py-3 text-[11px] text-amber-100/80">
               <span className="tracking-[0.25em] uppercase text-amber-200/90">
                 Elite Access
@@ -152,7 +140,6 @@ export default function PremiumHero() {
           </div>
         </div>
 
-        {/* CTA + QUICK STATS */}
         <div className="mt-10 flex flex-col items-center">
           <div
             ref={ctaRef}
@@ -166,7 +153,6 @@ export default function PremiumHero() {
             </button>
           </div>
 
-          {/* Price + key pillars */}
           <div className="flex flex-col items-center gap-4 text-[11px] text-amber-100/80 sm:flex-row sm:gap-6">
             <div className="hero-ring inline-flex items-center gap-2 rounded-full border border-amber-200/50 bg-black/70 px-4 py-2">
               <span className="uppercase tracking-[0.25em] text-amber-200/90">
