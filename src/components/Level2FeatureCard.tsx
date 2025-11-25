@@ -16,19 +16,19 @@ export function Level2FeatureCard({ icon, title, children }: Level2FeatureCardPr
       backdrop-blur-md
       hover:shadow-[0_0_60px_rgba(255,207,110,0.25)]
       transition-all duration-300
-      flex gap-4 items-start
+      flex flex-col items-center text-center
     ">
       <Image
         src={icon}
-        width={42}
-        height={42}
         alt={title}
-        className="drop-shadow-[0_0_8px_rgba(255,207,110,0.45)]"
+        width={80}
+        height={80}
+        className="mb-3 drop-shadow-[0_0_18px_rgba(248,191,60,0.7)]"
       />
-      <div>
-        <h3 className="text-lg font-semibold mb-1">{title}</h3>
-        <p className="text-[0.95rem] leading-relaxed opacity-80">{children}</p>
-      </div>
+      <h3 className="text-base font-semibold mb-1">{title}</h3>
+      <p className="text-sm opacity-80 leading-relaxed">
+        {children}
+      </p>
     </div>
   );
 }
