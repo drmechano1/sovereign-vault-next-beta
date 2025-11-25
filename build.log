@@ -1,0 +1,41 @@
+
+> sovereign-vault-nextjs-premium@1.0.0 build /home/ubuntu/sovereign-vault-next
+> next build
+
+  ▲ Next.js 14.2.5
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/16) ...
+   Generating static pages (4/16) 
+   Generating static pages (8/16) 
+   Generating static pages (12/16) 
+ ✓ Generating static pages (16/16)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    1.2 kB         93.3 kB
+├ ○ /_not-found                          872 B          87.9 kB
+├ ○ /ai                                  1.27 kB         133 kB
+├ ○ /dashboard                           175 B          92.3 kB
+├ ○ /guardians                           1.27 kB         133 kB
+├ ○ /legal                               1.27 kB         133 kB
+├ ○ /marketplace                         1.27 kB         133 kB
+├ ○ /onboarding                          1.27 kB         133 kB
+├ ○ /pricing                             1.27 kB         133 kB
+├ ○ /safesend                            1.27 kB         133 kB
+├ ○ /security                            1.27 kB         133 kB
+├ ○ /support                             1.27 kB         133 kB
+├ ○ /vault                               1.27 kB         133 kB
+└ ○ /wallet                              1.27 kB         133 kB
++ First Load JS shared by all            87 kB
+  ├ chunks/842-a9b944e97e0e971d.js       31.5 kB
+  ├ chunks/94c12b52-578e391f55082d92.js  53.6 kB
+  └ other shared chunks (total)          1.89 kB
+
+
+○  (Static)  prerendered as static content
+
