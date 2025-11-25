@@ -1,20 +1,25 @@
 import Image from 'next/image';
 import PremiumHero from '../components/PremiumHero';
+import { Level2FeatureCard } from '../components/Level2FeatureCard';
 
 const coreFeatures = [
   {
+    icon: '/assets/icons/level2/name-system.png',
     title: '@Name System',
     body: 'Claim your permanent @name once and route all wallets, chains, and contacts through a single human-readable identity.',
   },
   {
+    icon: '/assets/icons/level2/nft-vault-protection.png',
     title: 'NFT Vault Protection',
     body: "Lock blue-chip NFTs behind multi-guardian approvals and SafeSend rules so a single mistake can't cost everything.",
   },
   {
+    icon: '/assets/icons/level2/safesend.png',
     title: 'SafeSend',
     body: 'Send with a reversible delay window, guardian approvals, and AI-powered risk checks before anything leaves your vault.',
   },
   {
+    icon: '/assets/icons/level2/cross-chain-payments.png',
     title: 'Cross-Chain Payments',
     body: 'Pay anyone on any supported chain using only their @name — Sovereign Vault handles the routing behind the scenes.',
   },
@@ -25,7 +30,7 @@ export default function HomePage() {
     <div>
       <PremiumHero />
       
-      <section className="section-shell py-16">
+      <section className="section-shell bg-gradient-to-b from-black via-[#0B0B11] to-[#0E0E18] pt-[120px] pb-16">
         <div className="mb-8 flex items-center justify-between gap-4">
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-amber-300">
@@ -43,23 +48,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="mx-auto grid max-w-[720px] gap-4 md:grid-cols-2">
           {coreFeatures.map((f) => (
-            <div
-              key={f.title}
-              className="glass-card relative overflow-hidden rounded-2xl p-5 shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-all duration-200 hover:-translate-y-1"
-            >
-              <div className="pointer-events-none absolute inset-0 opacity-40 mix-blend-screen">
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-amber-300/35 via-amber-200/25 to-transparent blur-2xl" />
-              </div>
-
-              <h3 className="relative text-sm font-semibold text-amber-50">
-                {f.title}
-              </h3>
-              <p className="relative mt-2 text-xs text-amber-100/70">
-                {f.body}
-              </p>
-            </div>
+            <Level2FeatureCard key={f.title} icon={f.icon} title={f.title}>
+              {f.body}
+            </Level2FeatureCard>
           ))}
         </div>
       </section>
@@ -105,7 +98,7 @@ export default function HomePage() {
           {/* VISUAL SIDE */}
           <div className="relative flex flex-1 flex-col gap-4">
             {/* MAIN INTERFACE */}
-            <div className="overflow-hidden rounded-3xl border border-amber-200/40 bg-black/70 p-2 shadow-[0_0_40px_rgba(255,214,134,0.45)]">
+            <div className="overflow-hidden rounded-3xl border border-amber-200/40 bg-black/80 p-3 shadow-[0_0_40px_rgba(255,214,134,0.45)]">
               <div className="overflow-hidden rounded-2xl bg-black">
                 <Image
                   src="/images/sections/sovereign-vault-digital-interface-designs.png"
@@ -128,32 +121,36 @@ export default function HomePage() {
             {/* LOWER CARDS */}
             <div className="grid gap-4 sm:grid-cols-2">
               {/* Wallet card */}
-              <div className="overflow-hidden rounded-2xl border border-amber-200/40 bg-black/80 shadow-[0_0_26px_rgba(255,214,134,0.55)]">
-                <Image
-                  src="/images/sections/sovereign-vault-cryptocurrency-wallet-card.png"
-                  alt="Sovereign Vault premium wallet card"
-                  width={600}
-                  height={400}
-                  className="h-auto w-full object-contain"
-                />
-                <div className="px-3 py-2 text-[11px] text-amber-100/80">
-                  <span className="rounded-full bg-black/70 px-2 py-1">
+              <div className="overflow-hidden rounded-2xl border border-amber-200/40 bg-black/80 p-3 shadow-[0_0_26px_rgba(255,214,134,0.55)]">
+                <div className="overflow-hidden rounded-2xl bg-black">
+                  <Image
+                    src="/images/sections/sovereign-vault-cryptocurrency-wallet-card.png"
+                    alt="Sovereign Vault premium wallet card"
+                    width={600}
+                    height={400}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="mt-3 px-2 text-[11px] text-amber-100/80">
+                  <span className="rounded-full bg-black/70 px-3 py-1">
                     Elite Access Card • @name bound
                   </span>
                 </div>
               </div>
 
               {/* NFT Fort Knox */}
-              <div className="overflow-hidden rounded-2xl border border-amber-200/40 bg-black/80 shadow-[0_0_26px_rgba(255,214,134,0.55)]">
-                <Image
-                  src="/images/sections/nft-vault-protection-fort-knox-for-digital-assets.png"
-                  alt="NFT Fort Knox vault protection"
-                  width={600}
-                  height={400}
-                  className="h-auto w-full object-contain"
-                />
-                <div className="px-3 py-2 text-[11px] text-amber-100/80">
-                  <span className="rounded-full bg-black/70 px-2 py-1">
+              <div className="overflow-hidden rounded-2xl border border-amber-200/40 bg-black/80 p-3 shadow-[0_0_26px_rgba(255,214,134,0.55)]">
+                <div className="overflow-hidden rounded-2xl bg-black">
+                  <Image
+                    src="/images/sections/nft-vault-protection-fort-knox-for-digital-assets.png"
+                    alt="NFT Fort Knox vault protection"
+                    width={600}
+                    height={400}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="mt-3 px-2 text-[11px] text-amber-100/80">
+                  <span className="rounded-full bg-black/70 px-3 py-1">
                     Fort Knox-style NFT vault
                   </span>
                 </div>
