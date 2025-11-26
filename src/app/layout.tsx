@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '../styles/globals.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Web3Providers } from '../components/providers/Web3Providers';
 
 export const metadata: Metadata = {
   title: 'Sovereign Vault – Fort Knox for Your Digital Identity & Wealth',
@@ -25,9 +26,11 @@ export default function RootLayout({
         <div className="vault-grid" />
         <div className="vault-noise" />
 
-        <Header />
-        <main className="pb-10">{children}</main>
-        <Footer />
+        <Web3Providers>
+          <Header />
+          <main className="pb-10">{children}</main>
+          <Footer />
+        </Web3Providers>
       </body>
     </html>
   );
