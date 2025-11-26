@@ -5,12 +5,8 @@ import { injected } from "wagmi/connectors";
 
 export const wagmiConfig = createConfig({
   chains: [mainnet],
-  connectors: [
-    injected({
-      target: "metaMask",
-    }),
-  ],
+  connectors: [injected()],
   transports: {
-    [mainnet.id]: http(), // you can replace with custom RPC later
+    [mainnet.id]: http(),
   },
 });

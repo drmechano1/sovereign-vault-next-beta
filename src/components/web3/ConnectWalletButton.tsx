@@ -2,11 +2,10 @@
 "use client";
 
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { injected } from "wagmi/connectors";
 
 export default function ConnectWalletButton() {
   const { address, isConnecting, isReconnecting, isConnected } = useAccount();
-  const { connect } = useConnect({ connector: injected({ target: "metaMask" }) });
+  const { connectors, connect } = useConnect();
   const { disconnect } = useDisconnect();
 
   if (isConnected && address) {
@@ -27,7 +26,7 @@ export default function ConnectWalletButton() {
 
   return (
     <button
-      onClick={() => connect()}
+      onClick={() => connect({ connector: connectors[0] })}
       disabled={isConnecting || isReconnecting}
       className="inline-flex items-center gap-2 rounded-full border border-yellow-300/70 bg-yellow-300/15 px-4 py-1.5 text-[11px] font-semibold text-[#fbe6a4] hover:bg-yellow-300/25 disabled:opacity-60"
     >
