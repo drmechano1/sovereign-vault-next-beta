@@ -39,3 +39,8 @@ next-env.d.ts
 *.png
 *.jpg
 *.jpeg
+
+# Hardhat
+cache/
+artifacts/
+typechain-types/
