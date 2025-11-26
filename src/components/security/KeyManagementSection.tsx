@@ -16,23 +16,24 @@ export default function KeyManagementSection() {
         </p>
         <ul className="mt-4 space-y-2 text-sm text-[#f3e2b4]/90">
           <li>
-            • The NFC card is a physical trigger that initiates secure actions –
-            it does not store your private keys.
+            • The NFC card contains an EAL6+ secure element where your keys are
+            generated and stored. Keys are created on-card and are never
+            exported to your phone, our servers, or the open internet.
           </li>
           <li>
             • The mobile app (already ~90% built) verifies NFC requests and
-            gates them behind biometric checks before unlocking the vault
-            dashboard.
+            gates them behind biometric checks before it will let the card be
+            used to unlock the vault dashboard or approve sensitive actions.
           </li>
           <li>
-            • Keys are generated and kept on secure hardware; they never leave
-            the protected environment.
+            • The card signs carefully scoped challenges; the app and backend
+            see signatures and policies, not raw key material.
           </li>
           <li>
-            • Backup, recovery, and any multi-party key schemes are intentionally
-            not described in detail here. They exist, but their design is
-            treated as a trade secret and only shared with auditors and partners
-            under NDA.
+            • Backup, recovery, and any multi-party key schemes are
+            intentionally not described in detail here. They exist, but their
+            design is treated as a trade secret and only shared with auditors
+            and partners under NDA.
           </li>
         </ul>
       </div>

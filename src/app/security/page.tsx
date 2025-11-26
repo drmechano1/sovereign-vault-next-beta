@@ -1,6 +1,8 @@
 // app/security/page.tsx
 import LayeredSecurityOverview from "@/components/security/LayeredSecurityOverview";
+import NameLayerSection from "@/components/security/NameLayerSection";
 import KeyManagementSection from "@/components/security/KeyManagementSection";
+import NftVaultSection from "@/components/security/NftVaultSection";
 
 export default function SecurityPage() {
   return (
@@ -20,7 +22,9 @@ export default function SecurityPage() {
         </section>
         
         <LayeredSecurityOverview />
+        <NameLayerSection />
         <KeyManagementSection />
+        <NftVaultSection />
       </div>
     </main>
   );
