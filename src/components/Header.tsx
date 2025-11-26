@@ -13,7 +13,7 @@ const navItems = [
   { href: "/dashboard", label: "Dashboard" },
 ];
 
-export default function Header() {
+export function Header() {
   const pathname = usePathname();
 
   return (
