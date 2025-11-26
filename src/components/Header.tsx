@@ -35,7 +35,7 @@ export function Header() {
         </Link>
 
         {/* Nav */}
-        <nav className="hidden items-center gap-6 text-xs md:flex">
+        <nav className="flex items-center gap-4 text-[11px] md:gap-6 md:text-xs">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
