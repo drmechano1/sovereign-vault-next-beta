@@ -16,8 +16,7 @@ export default function SecurityPage() {
             Fort Knox for your digital wealth.
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-[#f3e2b4]/90">
-            From hardware roots of trust to guardian-based approvals, every layer is
-            designed to fail safe.
+            From hardware roots of trust to guardian-based approvals, every layer of Sovereign Vault is designed to fail safe, not fail open.
           </p>
         </section>
         
@@ -25,6 +24,13 @@ export default function SecurityPage() {
         <NameLayerSection />
         <KeyManagementSection />
         <NftVaultSection />
+        
+        {/* NDA disclaimer */}
+        <section className="mt-10 rounded-2xl border border-white/5 bg-black/60 p-5 text-center backdrop-blur">
+          <p className="text-xs text-[#f3e2b4]/75">
+            The exact registry structure, guardian rules, and @name routing contracts are deliberately kept internal to reduce the attack surface. Integration partners get deeper technical documentation and threat models under NDA, not on a public web page.
+          </p>
+        </section>
       </div>
     </main>
   );

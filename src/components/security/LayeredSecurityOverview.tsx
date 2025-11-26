@@ -5,31 +5,31 @@ export default function LayeredSecurityOverview() {
       label: "Identity layer",
       title: "@name security",
       description:
-        "Human-readable @names mapped to your wallets and chains. People send to the name, not raw addresses.",
+        "Human-readable @names mapped to your wallets and chains. People send to the name, not raw addresses. The @name NFT lives inside the vault and its smart contract checks that the caller really owns that @name before it lets assets move.",
     },
     {
       label: "Access layer",
       title: "NFC + biometric gate",
       description:
-        "Your NFC card and mobile app work together with biometric checks to unlock the vault dashboard. The card is a trigger, the app is the gatekeeper.",
+        "An EAL6+ secure-element card and the mobile app work together as a front door. Keys are generated and stored on the card; they never leave or touch the internet. NFC taps trigger signing flows, but biometrics in the app are the gatekeeper for approvals.",
     },
     {
       label: "Transaction layer",
       title: "SafeSend guardrails",
       description:
-        "Time-delayed transfers, guardian approvals, and AI checks before funds move.",
+        "Time-delayed transfers, guardian approvals, and AI checks before big moves settle. If risk spikes or something looks off, transfers are held in the SafeSend lane instead of going straight to chain.",
     },
     {
       label: "Intelligence layer",
       title: "AI risk engine",
       description:
-        "Continuous scoring of wallets, contracts, and counterparties with live anomaly alerts.",
+        "Continuous scoring of wallets, contracts, routes, and counterparties. Anomaly alerts push suspicious flows into SafeSend so you can step in before funds move.",
     },
     {
       label: "Asset layer",
       title: "Vault + RWA support",
       description:
-        "Hardware-grade key security, a dedicated NFT vault, and rails designed to support RWAs as they come on-chain.",
+        "Hardware-grade key security with a dedicated vault for high-value assets: large crypto balances, RWAs, governance tokens, and premium NFTs. Guardian policies and recovery rules sit here, not on a public web wallet.",
     },
   ];
 

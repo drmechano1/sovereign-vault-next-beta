@@ -9,31 +9,20 @@ export default function KeyManagementSection() {
           NFC + biometric: elegant front door, boring keys.
         </h2>
         <p className="mt-3 text-sm text-[#f3e2b4]/90">
-          Sovereign Vault is built so that day-to-day access feels like tapping
-          a premium card – but under the hood, it behaves like a hardened
-          military facility. Your NFC card, mobile app, and biometrics work
-          together as an access layer in front of deeply protected keys.
+          Sovereign Vault is built so that day-to-day access feels like tapping a premium card, but under the hood it behaves like a hardened military facility.
         </p>
         <ul className="mt-4 space-y-2 text-sm text-[#f3e2b4]/90">
           <li>
-            • The NFC card contains an EAL6+ secure element where your keys are
-            generated and stored. Keys are created on-card and are never
-            exported to your phone, our servers, or the open internet.
+            • The NFC card uses an EAL6+ secure element. Keys are generated on-card, stay on-card, and never touch the internet.
           </li>
           <li>
-            • The mobile app (already ~90% built) verifies NFC requests and
-            gates them behind biometric checks before it will let the card be
-            used to unlock the vault dashboard or approve sensitive actions.
+            • Taps from the card initiate signing flows, but the mobile app and biometrics have to agree before anything is approved. The app is the gatekeeper; it never sees the raw private keys.
           </li>
           <li>
-            • The card signs carefully scoped challenges; the app and backend
-            see signatures and policies, not raw key material.
+            • Steal the card without the phone and biometrics? You can't move funds. Steal the phone without the card? You still can't sign. Both factors are required.
           </li>
           <li>
-            • Backup, recovery, and any multi-party key schemes are
-            intentionally not described in detail here. They exist, but their
-            design is treated as a trade secret and only shared with auditors
-            and partners under NDA.
+            • Backup, recovery, and any multi-party key schemes are intentionally not described in detail here. They exist, but their design is treated as a trade secret and only shared with auditors and partners under NDA.
           </li>
         </ul>
       </div>
