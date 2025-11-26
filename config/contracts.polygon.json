@@ -1,0 +1,49 @@
+{
+  "network": "polygon",
+  "chainId": 137,
+  "deployer": "0xf0CE0738bb6BE16c482024c82F9903C4de2965C6",
+  "contracts": {
+    "NameNFT": {
+      "address": "0x4fE567616584Ab01a716606d009336a7c0398397",
+      "description": "ERC-721 NFT contract for @name ownership",
+      "verified": true
+    },
+    "NameRegistry": {
+      "address": "0x3eF0d0067899f4AB31D9D93B5FB6E4976762F0ca",
+      "description": "Central registry mapping @names to wallet addresses across chains",
+      "verified": true
+    },
+    "PaymentRouter": {
+      "address": "0xcCB7488462EbdbE18AfD0ac04B76921b8A1aa357",
+      "description": "Cross-chain payment routing logic",
+      "verified": true
+    },
+    "EscrowFactory": {
+      "address": "0x29aBFc89126722B9d190Fe980E2D528Cf0bFA800",
+      "description": "Factory for creating escrow contracts",
+      "verified": true
+    },
+    "NFTVault": {
+      "address": "0xfad63B409570Da25DBa89633FD782a9DAFfD58CD",
+      "description": "Vault for securing high-value NFTs and RWAs",
+      "verified": true
+    },
+    "WalletCore": {
+      "address": "0x8a60312eE35590666d198e610D39794D414D4d89",
+      "description": "Core wallet logic (SOURCE NOT VERIFIED ON POLYGONSCAN)",
+      "verified": false,
+      "note": "Address exists but no verified source code available on Polygonscan"
+    },
+    "GuardianModule": {
+      "address": "0x71A97890d985a1e3A1679DaC80f33064a1aD7b3c",
+      "description": "Guardian approval and recovery module (SOURCE NOT VERIFIED ON POLYGONSCAN)",
+      "verified": false,
+      "note": "Address exists but no verified source code available on Polygonscan"
+    }
+  },
+  "notes": {
+    "WalletFactory": "Not included - source code not available",
+    "deployment_date": "2025-11-08",
+    "source_files": "contracts/v1/"
+  }
+}
