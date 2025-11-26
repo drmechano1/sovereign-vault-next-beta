@@ -424,7 +424,7 @@ export default function HomePage() {
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/90">
                 <div className="relative h-40 w-full">
                   <Image
-                    src="/images/sections/at-name-marketplace-grid.png"
+                    src="/images/sections/unified-vault-dashboard.png"
                     alt="Grid of premium @name listings"
                     fill
                     className="object-cover"
