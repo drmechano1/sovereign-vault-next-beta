@@ -8,10 +8,11 @@ export default function PricingPage() {
       cadence: "one-time",
       tagline: "Your first step into a hardware-grade vault.",
       featured: false,
-      highlight: "Includes hardware and your first @name so you can actually use the system.",
+      highlight:
+        "Includes hardware and your first @name so you can actually use the system.",
       features: [
         "1 EAL6+ NFC card with on-card key generation",
-        "1 base @name with smart-contract vault protection included",
+        "Early access: claim 1 @name with vault protection included (just pay network gas to mint)",
         "Basic SafeSend delays on outbound transfers",
         "AI risk scores on counterparties inside the dashboard",
         "Access to the Sovereign Vault mobile app with biometric gate",
@@ -30,7 +31,7 @@ export default function PricingPage() {
         "Advanced SafeSend policies & guardian approvals",
         "AI risk engine with real-time alerts and reports",
         "Priority support and onboarding call",
-        "Discounts on additional premium @names",
+        "Discounts on additional premium @names during early access",
       ],
     },
     {
@@ -56,17 +57,21 @@ export default function PricingPage() {
         {/* Hero */}
         <section className="text-center">
           <div className="inline-flex items-center rounded-full border border-yellow-300/30 bg-yellow-300/5 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[#f5d27a]/90">
-            Pricing
+            Early access pricing
           </div>
           <h1 className="mt-4 text-3xl font-bold text-white md:text-4xl">
             Simple pricing for serious wealth.
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base text-[#f3e2b4]/90">
-            One command center for your @names, NFC cards, SafeSend policies,
-            and AI risk engine. Choose how deep into the vault you want to go.
+            Start with a hardware-grade vault kit, then upgrade to a full
+            command center when you&apos;re ready. Your basic Sovereign Wallet
+            stays free for life.
           </p>
-          <p className="mt-2 text-[11px] text-[#f3e2b4]/70">
-            Pricing and features may evolve during early access.
+          <p className="mx-auto mt-2 max-w-xl text-[11px] text-[#f3e2b4]/75">
+            During early access, you can claim one @name at a deep discount
+            (gas-only mint). After mainnet and our shard upgrade, all new
+            @names will be bought and traded through the marketplace at standard
+            pricing.
           </p>
         </section>
 
@@ -87,12 +92,8 @@ export default function PricingPage() {
                   Recommended
                 </div>
               )}
-              <h2 className="text-sm font-semibold text-white">
-                {tier.name}
-              </h2>
-              <p className="mt-1 text-xs text-[#f3e2b4]/85">
-                {tier.tagline}
-              </p>
+              <h2 className="text-sm font-semibold text-white">{tier.name}</h2>
+              <p className="mt-1 text-xs text-[#f3e2b4]/85">{tier.tagline}</p>
 
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="text-3xl font-semibold text-white">
@@ -133,28 +134,43 @@ export default function PricingPage() {
           ))}
         </section>
 
+        {/* Free basic wallet blurb */}
+        <section className="mt-10 rounded-2xl border border-white/10 bg-black/80 p-5 text-center backdrop-blur">
+          <h2 className="text-sm font-semibold text-white">
+            Basic Sovereign Wallet — free for life.
+          </h2>
+          <p className="mx-auto mt-2 max-w-2xl text-xs md:text-sm text-[#f3e2b4]/90">
+            Connect a Web3 wallet, see your balances in one place, and use
+            basic SafeSend protections without a monthly fee. You only pay for
+            hardware, advanced command center features, and premium @names.
+          </p>
+        </section>
+
         {/* FAQ */}
         <section className="mt-12 rounded-2xl border border-white/10 bg-black/80 p-5 backdrop-blur">
           <h2 className="text-sm font-semibold text-white">Pricing FAQ</h2>
           <div className="mt-4 space-y-4 text-xs md:text-sm text-[#f3e2b4]/90">
             <div>
               <div className="font-semibold text-white">
-                Are these prices final?
+                What is the early access offer?
               </div>
               <p className="mt-1">
-                No. During early access we reserve the right to adjust pricing
-                and limits as we learn. Early users will be treated fairly if
-                plans change.
+                During early access, you can claim one @name at a deep discount.
+                You pay network gas to mint it with your Web3 wallet, but we
+                waive the name&apos;s standard marketplace price. After
+                mainnet and our shard upgrade, all new @names will be bought or
+                traded through the marketplace at standard pricing.
               </p>
             </div>
             <div>
               <div className="font-semibold text-white">
-                What&apos;s included in hardware?
+                Is the basic wallet really free for life?
               </div>
               <p className="mt-1">
-                Plans that include hardware ship an NFC card with an EAL6+
-                secure element. Keys are generated and stored on-card and are
-                never exported to your phone or our servers.
+                Yes. The basic Sovereign Wallet is free for life for early
+                users. You can connect a wallet, see your positions, and use
+                basic protections without a subscription. Command Center plans
+                and premium @names are optional upgrades.
               </p>
             </div>
             <div>
