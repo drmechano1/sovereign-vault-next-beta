@@ -1,6 +1,5 @@
 // app/dashboard/page.tsx
 import Image from "next/image";
-import ConnectWalletButton from "@/components/web3/ConnectWalletButton";
 
 export default function DashboardPage() {
   return (
@@ -21,15 +20,12 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <div className="flex flex-col items-end gap-2 text-[11px] md:text-xs">
-            <ConnectWalletButton />
-            <div className="flex gap-2">
-              <div className="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-emerald-200">
-                Overall score: <span className="font-semibold">AA+</span>
-              </div>
-              <div className="rounded-full border border-white/15 bg-black/60 px-3 py-1 text-[#f3e2b4]/80">
-                Early access · simulated data
-              </div>
+          <div className="flex gap-2 text-[11px] md:text-xs">
+            <div className="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-emerald-200">
+              Overall score: <span className="font-semibold">AA+</span>
+            </div>
+            <div className="rounded-full border border-white/15 bg-black/60 px-3 py-1 text-[#f3e2b4]/80">
+              Early access · simulated data
             </div>
           </div>
         </section>
