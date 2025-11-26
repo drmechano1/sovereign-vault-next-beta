@@ -63,15 +63,7 @@ export default function PricingPage() {
             Simple pricing for serious wealth.
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base text-[#f3e2b4]/90">
-            Start with a hardware-grade vault kit, then upgrade to a full
-            command center when you&apos;re ready. Your basic Sovereign Wallet
-            stays free for life.
-          </p>
-          <p className="mx-auto mt-2 max-w-xl text-[11px] text-[#f3e2b4]/75">
-            During early access, you can claim one @name at a deep discount
-            (gas-only mint). After mainnet and our shard upgrade, all new
-            @names will be bought and traded through the marketplace at standard
-            pricing.
+            Sovereign Wallet is free for life. During early access, every verified user can claim one @name NFT at gas-only mint cost before our shard upgrade. After that, new @names must be purchased or traded on the @Name Marketplace at market prices. The plans below unlock deeper vault, SafeSend, and command center features on top of that free base wallet.
           </p>
         </section>
 
@@ -188,6 +180,13 @@ export default function PricingPage() {
             Details of the security architecture, contracts, and policies are
             intentionally simplified here. Full technical documentation is
             available for auditors and partners under NDA.
+          </p>
+        </section>
+
+        {/* Early access disclaimer */}
+        <section className="mt-6 text-center">
+          <p className="text-[11px] text-[#f3e2b4]/70">
+            Early-access pricing and features are subject to change before general availability. Free @name claims are limited to one per verified user and only available until the shard upgrade.
           </p>
         </section>
       </div>

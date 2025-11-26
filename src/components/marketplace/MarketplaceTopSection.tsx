@@ -13,6 +13,9 @@ export default function MarketplaceTopSection() {
           Premium @names are scarce digital real estate. Claim the ones that
           matter before they become someone else's brand, identity, or signal.
         </p>
+        <p className="mt-2 max-w-xl text-xs text-[#f3e2b4]/75">
+          During early access, some @names can be claimed at gas-only mint cost. After the shard upgrade, all new @names will be bought, sold, or leased directly through this marketplace.
+        </p>
         <ul className="mt-4 space-y-2 text-sm text-[#f3e2b4]/90">
           <li>• AI-ranked handles based on culture, relevance, and demand.</li>
           <li>• Social proof verification flow for celebs and enterprises.</li>

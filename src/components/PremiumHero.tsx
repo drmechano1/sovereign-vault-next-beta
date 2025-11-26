@@ -63,12 +63,10 @@ export default function PremiumHero() {
           </button>
         </div>
 
-        {/* Elite access pill */}
-        <div className="mt-2 inline-flex items-center gap-3 rounded-full border border-amber-500/40 bg-black/50 px-4 py-2 text-xs text-amber-100/80 backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          <span className="font-semibold">Elite Access</span>
-          <span className="text-amber-200/70">One-time • Lifetime @Name</span>
-        </div>
+        {/* Fine print */}
+        <p className="mt-2 max-w-2xl text-center text-xs text-amber-100/70">
+          Basic Sovereign Wallet is free for life. During early access you can also claim one @name at gas-only mint cost before the shard upgrade. After that, new @names will only be available on the marketplace.
+        </p>
       </div>
     </section>
   );
