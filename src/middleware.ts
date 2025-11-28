@@ -1,56 +1,45 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// Edge Runtime compatible
+export const config = {
+  runtime: 'edge',
+  matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
+};
+
 export function middleware(request: NextRequest) {
-  // Get the Basic Auth credentials from environment
   const basicAuthPassword = process.env.BETA_PASSWORD;
   
+  // Skip auth if no password is configured
   if (!basicAuthPassword) {
-    // If no password is set, allow access (for development)
     return NextResponse.next();
   }
 
-  // Check for authorization header
   const authHeader = request.headers.get('authorization');
-  
-  if (!authHeader || !authHeader.startsWith('Basic ')) {
-    // No auth provided, request it
+
+  // Request authentication if not provided
+  if (!authHeader) {
     return new NextResponse('Authentication required', {
       status: 401,
       headers: {
-        'WWW-Authenticate': 'Basic realm="Sovereign Vault Beta Access"',
+        'WWW-Authenticate': 'Basic realm="Sovereign Vault Beta"',
       },
     });
   }
 
-  // Decode and verify credentials
-  try {
-    const base64Credentials = authHeader.split(' ')[1];
-    const credentials = Buffer.from(base64Credentials, 'base64').toString('utf-8');
-    const [username, password] = credentials.split(':');
+  // Parse Basic Auth
+  const auth = authHeader.split(' ')[1];
+  const [user, pass] = atob(auth).split(':');
 
-    // Check password (username can be anything)
-    if (password === basicAuthPassword) {
-      return NextResponse.next();
-    }
-  } catch (error) {
-    // Invalid auth format
+  // Verify password
+  if (pass !== basicAuthPassword) {
+    return new NextResponse('Invalid credentials', {
+      status: 401,
+      headers: {
+        'WWW-Authenticate': 'Basic realm="Sovereign Vault Beta"',
+      },
+    });
   }
 
-  // Invalid credentials
-  return new NextResponse('Invalid credentials', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Sovereign Vault Beta Access"',
-    },
-  });
+  return NextResponse.next();
 }
-
-export const config = {
-  matcher: [
-    /*
-     * Match all paths except static files
-     */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
-  ],
-};
