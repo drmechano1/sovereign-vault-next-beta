@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// Beta password protection middleware - v1.0
+
 export function middleware(request: NextRequest) {
   // Check if user is authenticated
   const isAuthenticated = request.cookies.get('beta-auth')?.value === 'authenticated';
